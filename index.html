@@ -1,253 +1,308 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Los Tacos May – Pago</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Los Tacos May – Pago</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --green:      #4a9a3a;
-      --green-dark: #357a28;
-      --green-light:#eef7ec;
-      --text:       #1a1a1a;
-      --muted:      #6b7280;
-      --border:     #e5e7eb;
-      --white:      #ffffff;
-    }
+      :root {
+        --green: #4a9a3a;
+        --green-dark: #357a28;
+        --green-light: #eef7ec;
+        --text: #1a1a1a;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --white: #ffffff;
+      }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f9fafb;
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 16px 60px;
-    }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #cbf2c9;
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 16px 60px;
+      }
 
-    /* ── Logo ── */
-    .logo-wrap {
-      margin-bottom: 36px;
-      text-align: center;
-    }
+      /* ── Logo ── */
+      .logo-wrap {
+        margin-bottom: 36px;
+        text-align: center;
+      }
 
-    .logo-wrap img {
-      width: 130px;
-      height: 130px;
-      object-fit: contain;
-      border-radius: 50%;
-      box-shadow: 0 4px 24px rgba(74,154,58,0.18);
-    }
+      .logo-wrap img {
+        width: 130px;
+        height: 130px;
+        object-fit: contain;
+        border-radius: 50%;
+        box-shadow: 0 4px 24px rgba(74, 154, 58, 0.18);
+      }
 
-    /* ── Section label ── */
-    .label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
+      /* ── Section label ── */
+      .label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
 
-    /* ── Cards ── */
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px 20px;
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 16px;
-    }
+      /* ── Cards ── */
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px 20px;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 16px;
+      }
 
-    /* ── Account number ── */
-    .account-number {
-      font-size: 1.55rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      text-align: center;
-      padding: 16px 12px;
-      background: var(--green-light);
-      border-radius: 10px;
-      margin-bottom: 14px;
-    }
+      /* ── Account number ── */
+      .account-number {
+        font-size: 1.55rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--text);
+        text-align: center;
+        padding: 16px 12px;
+        background: var(--green-light);
+        border-radius: 10px;
+        margin-bottom: 14px;
+      }
 
-    .copy-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      border-radius: 10px;
-      padding: 13px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .copy-btn:hover  { background: var(--green-dark); }
-    .copy-btn:active { transform: scale(0.98); }
+      .copy-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        background: var(--green);
+        color: var(--white);
+        border: none;
+        border-radius: 10px;
+        padding: 13px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .copy-btn:hover {
+        background: var(--green-dark);
+      }
+      .copy-btn:active {
+        transform: scale(0.98);
+      }
 
-    .copy-feedback {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--green);
-      min-height: 18px;
-      margin-top: 8px;
-    }
+      .copy-feedback {
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--green);
+        min-height: 18px;
+        margin-top: 8px;
+      }
 
-    /* ── Phone ── */
-    .phone-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+      /* ── Phone ── */
+      .phone-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
 
-    .phone-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--green-light);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+      .phone-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--green-light);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
 
-    .phone-icon svg { width: 22px; height: 22px; color: var(--green); }
+      .phone-icon svg {
+        width: 22px;
+        height: 22px;
+        color: var(--green);
+      }
 
-    .phone-info .number {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-    }
+      .phone-info .number {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+      }
 
-    .phone-info .sublabel {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
+      .phone-info .sublabel {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
 
-    /* ── WhatsApp ── */
-    .whatsapp-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #25d366;
-      color: var(--white);
-      text-decoration: none;
-      border-radius: 14px;
-      padding: 16px 24px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      width: 100%;
-      max-width: 400px;
-      transition: background 0.15s, transform 0.1s;
-    }
+      /* ── WhatsApp ── */
+      .whatsapp-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: #25d366;
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 14px;
+        padding: 16px 24px;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 100%;
+        max-width: 400px;
+        transition:
+          background 0.15s,
+          transform 0.1s;
+      }
 
-    .whatsapp-btn:hover  { background: #1fb858; }
-    .whatsapp-btn:active { transform: scale(0.98); }
+      .whatsapp-btn:hover {
+        background: #1fb858;
+      }
+      .whatsapp-btn:active {
+        transform: scale(0.98);
+      }
 
-    .whatsapp-btn svg { width: 26px; height: 26px; flex-shrink: 0; }
+      .whatsapp-btn svg {
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+      }
 
-    /* ── Divider ── */
-    .divider {
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 4px 0 16px;
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      border-top: 1px solid var(--border);
-    }
+      /* ── Divider ── */
+      .divider {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 4px 0 16px;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        border-top: 1px solid var(--border);
+      }
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 48px;
-      color: #c0c0c0;
-      font-size: 0.75rem;
-    }
-  </style>
-</head>
-<body>
+      /* ── Footer ── */
+      footer {
+        margin-top: 48px;
+        color: #c0c0c0;
+        font-size: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-wrap">
+      <img src="logo/logo.png" alt="Los Tacos May" />
+    </div>
 
-  <div class="logo-wrap">
-    <img src="logo/logo.png" alt="Los Tacos May" />
-  </div>
-
-  <!-- Account number -->
-  <div class="card">
-    <div class="label">Número de tarjeta</div>
-    <div class="account-number">5206 9496 5530 5091</div>
-    <button class="copy-btn" onclick="copyAccount()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-      </svg>
-      Copiar número
-    </button>
-    <div class="copy-feedback" id="copyFeedback"></div>
-  </div>
-
-  <!-- Phone confirmation -->
-  <div class="card">
-    <div class="label">Confirmar pago</div>
-    <div class="phone-row">
-      <div class="phone-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#4a9a3a" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+    <!-- Account number -->
+    <div class="card">
+      <div class="label">Número de tarjeta</div>
+      <div class="account-number">5206 9496 5530 5091</div>
+      <button class="copy-btn" onclick="copyAccount()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path
+            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+          ></path>
         </svg>
-      </div>
-      <div class="phone-info">
-        <div class="number" id="phoneDisplay">624 184 3194</div>
-        <div class="sublabel">Envía tu comprobante a este número</div>
+        Copiar número
+      </button>
+      <div class="copy-feedback" id="copyFeedback"></div>
+    </div>
+
+    <!-- Phone confirmation -->
+    <div class="card">
+      <div class="label">Confirmar pago</div>
+      <div class="phone-row">
+        <div class="phone-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#4a9a3a"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            />
+          </svg>
+        </div>
+        <div class="phone-info">
+          <div class="number" id="phoneDisplay">624 184 3194</div>
+          <div class="sublabel">Envía tu comprobante a este número</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="divider">o contáctanos por</div>
+    <div class="divider">o contáctanos por</div>
 
-  <!-- WhatsApp -->
-  <a class="whatsapp-btn" id="whatsappBtn" href="#" target="_blank" rel="noopener">
-    <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.643 4.788 1.768 6.8L2 30l7.4-1.74A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 0 1-5.824-1.594l-.418-.248-4.394 1.032 1.056-4.28-.272-.44A11.46 11.46 0 0 1 4.5 16C4.5 9.648 9.648 4.5 16 4.5S27.5 9.648 27.5 16 22.352 27.5 16 27.5zm6.29-8.56c-.344-.172-2.036-1.004-2.352-1.12-.316-.114-.546-.172-.776.172-.23.344-.888 1.12-1.088 1.35-.2.23-.4.258-.744.086-.344-.172-1.452-.536-2.766-1.708-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.872-1.064-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43-.316.344-1.204 1.176-1.204 2.868s1.232 3.326 1.404 3.556c.172.23 2.424 3.702 5.872 5.19.822.354 1.462.566 1.962.724.824.262 1.574.226 2.166.138.66-.1 2.036-.832 2.322-1.636.286-.804.286-1.492.2-1.636-.084-.144-.314-.23-.658-.402z"/>
-    </svg>
-    Contactar por WhatsApp
-  </a>
+    <!-- WhatsApp -->
+    <a
+      class="whatsapp-btn"
+      id="whatsappBtn"
+      href="#"
+      target="_blank"
+      rel="noopener"
+    >
+      <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16 2C8.268 2 2 8.268 2 16c0 2.47.643 4.788 1.768 6.8L2 30l7.4-1.74A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 0 1-5.824-1.594l-.418-.248-4.394 1.032 1.056-4.28-.272-.44A11.46 11.46 0 0 1 4.5 16C4.5 9.648 9.648 4.5 16 4.5S27.5 9.648 27.5 16 22.352 27.5 16 27.5zm6.29-8.56c-.344-.172-2.036-1.004-2.352-1.12-.316-.114-.546-.172-.776.172-.23.344-.888 1.12-1.088 1.35-.2.23-.4.258-.744.086-.344-.172-1.452-.536-2.766-1.708-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.872-1.064-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43-.316.344-1.204 1.176-1.204 2.868s1.232 3.326 1.404 3.556c.172.23 2.424 3.702 5.872 5.19.822.354 1.462.566 1.962.724.824.262 1.574.226 2.166.138.66-.1 2.036-.832 2.322-1.636.286-.804.286-1.492.2-1.636-.084-.144-.314-.23-.658-.402z"
+        />
+      </svg>
+      Contactar por WhatsApp
+    </a>
 
-  <footer>Los Tacos May &copy; 2026</footer>
+    <footer>Los Tacos May &copy; 2026</footer>
 
-  <script>
-    document.getElementById('whatsappBtn').href = 'https://wa.me/message/GOGFBOCLJUFRE1';
-    document.getElementById('phoneDisplay').textContent = '624 184 3194';
+    <script>
+      document.getElementById("whatsappBtn").href =
+        "https://wa.me/message/GOGFBOCLJUFRE1";
+      document.getElementById("phoneDisplay").textContent = "624 184 3194";
 
-    function copyAccount() {
-      navigator.clipboard.writeText('5206 9496 5530 5091').then(() => {
-        const fb = document.getElementById('copyFeedback');
-        fb.textContent = 'Copiado al portapapeles';
-        setTimeout(() => fb.textContent = '', 2200);
-      });
-    }
-  </script>
-
-</body>
+      function copyAccount() {
+        navigator.clipboard.writeText("5206 9496 5530 5091").then(() => {
+          const fb = document.getElementById("copyFeedback");
+          fb.textContent = "Copiado al portapapeles";
+          setTimeout(() => (fb.textContent = ""), 2200);
+        });
+      }
+    </script>
+  </body>
 </html>
