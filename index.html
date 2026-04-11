@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Tacos May – Pago</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      color: #2d2d2d;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    header .emoji { font-size: 56px; }
+
+    header h1 {
+      font-size: 2rem;
+      color: #c0392b;
+      margin-top: 8px;
+    }
+
+    header p {
+      color: #777;
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 28px 24px;
+      width: 100%;
+      max-width: 420px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #999;
+      margin-bottom: 16px;
+    }
+
+    /* QR */
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    #qrcode canvas, #qrcode img {
+      border-radius: 12px;
+      border: 6px solid #fff8f0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .account-number {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #2d2d2d;
+      background: #fff8f0;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      display: block;
+      width: 100%;
+      background: #c0392b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover { background: #a93226; }
+    .copy-btn:active { background: #922b21; }
+
+    .copy-feedback {
+      text-align: center;
+      color: #27ae60;
+      font-size: 0.85rem;
+      margin-top: 8px;
+      min-height: 20px;
+    }
+
+    /* Phone */
+    .phone-number {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2d2d2d;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .phone-label {
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 14px;
+      padding: 16px 24px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      max-width: 420px;
+      transition: background 0.2s;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.35);
+    }
+
+    .whatsapp-btn:hover { background: #1ebe5d; }
+
+    .whatsapp-btn svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      margin-top: 36px;
+      color: #bbb;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="emoji">🌮</div>
+    <h1>Los Tacos May</h1>
+    <p>Escaneá el QR o copiá el número para pagar</p>
+  </header>
+
+  <!-- QR + Account number -->
+  <div class="card">
+    <h2>Número de tarjeta / cuenta</h2>
+    <div id="qrcode"></div>
+    <div class="account-number" id="accountDisplay">5206 9496 5530 5091</div>
+    <button class="copy-btn" onclick="copyAccount()">Copiar número</button>
+    <div class="copy-feedback" id="copyFeedback"></div>
+  </div>
+
+  <!-- Phone confirmation -->
+  <div class="card">
+    <h2>Confirmar pago por SMS / llamada</h2>
+    <div class="phone-number" id="phoneDisplay">Próximamente</div>
+    <div class="phone-label">Enviá tu comprobante a este número</div>
+  </div>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-btn" id="whatsappBtn" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.643 4.788 1.768 6.8L2 30l7.4-1.74A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 0 1-5.824-1.594l-.418-.248-4.394 1.032 1.056-4.28-.272-.44A11.46 11.46 0 0 1 4.5 16C4.5 9.648 9.648 4.5 16 4.5S27.5 9.648 27.5 16 22.352 27.5 16 27.5zm6.29-8.56c-.344-.172-2.036-1.004-2.352-1.12-.316-.114-.546-.172-.776.172-.23.344-.888 1.12-1.088 1.35-.2.23-.4.258-.744.086-.344-.172-1.452-.536-2.766-1.708-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.872-1.064-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43-.316.344-1.204 1.176-1.204 2.868s1.232 3.326 1.404 3.556c.172.23 2.424 3.702 5.872 5.19.822.354 1.462.566 1.962.724.824.262 1.574.226 2.166.138.66-.1 2.036-.832 2.322-1.636.286-.804.286-1.492.2-1.636-.084-.144-.314-.23-.658-.402z"/>
+    </svg>
+    Contactar por WhatsApp
+  </a>
+
+  <footer>
+    <p>Los Tacos May &copy; 2026</p>
+  </footer>
+
+  <script>
+    // ── Configuration ──────────────────────────────────────────
+    const ACCOUNT  = '5206949655305091';   // digits only for QR
+    const DISPLAY  = '5206 9496 5530 5091'; // formatted for display
+    const PHONE    = '';                    // add number when ready, e.g. '525512345678'
+    const WA_MSG   = encodeURIComponent('Hola! Acabo de realizar mi pago. Adjunto comprobante.');
+    // ───────────────────────────────────────────────────────────
+
+    // Generate QR code
+    new QRCode(document.getElementById('qrcode'), {
+      text: ACCOUNT,
+      width: 200,
+      height: 200,
+      colorDark: '#c0392b',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // WhatsApp link
+    if (PHONE) {
+      document.getElementById('whatsappBtn').href = `https://wa.me/${PHONE}?text=${WA_MSG}`;
+      document.getElementById('phoneDisplay').textContent = `+${PHONE}`;
+    } else {
+      document.getElementById('whatsappBtn').href = '#';
+      document.getElementById('whatsappBtn').style.opacity = '0.5';
+      document.getElementById('whatsappBtn').style.pointerEvents = 'none';
+    }
+
+    // Copy account number
+    function copyAccount() {
+      navigator.clipboard.writeText(DISPLAY).then(() => {
+        const fb = document.getElementById('copyFeedback');
+        fb.textContent = 'Copiado!';
+        setTimeout(() => fb.textContent = '', 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
