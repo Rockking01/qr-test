@@ -1,129 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QR – Los Tacos May</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR – Los Tacos May</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 40px 24px;
-      color: #1a1a1a;
-    }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 40px 24px;
+        color: #1a1a1a;
+      }
 
-    .card {
-      border: 2.5px solid #4a9a3a;
-      border-radius: 24px;
-      padding: 36px 40px;
-      text-align: center;
-      max-width: 340px;
-      width: 100%;
-    }
+      .card {
+        border: 2.5px solid #4a9a3a;
+        border-radius: 24px;
+        padding: 36px 40px;
+        text-align: center;
+        max-width: 340px;
+        width: 100%;
+      }
 
-    .logo {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
+      .logo {
+        width: 90px;
+        height: 90px;
+        object-fit: contain;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
 
-    h1 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #4a9a3a;
-      margin-bottom: 4px;
-    }
+      h1 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #4a9a3a;
+        margin-bottom: 4px;
+      }
 
-    .subtitle {
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin-bottom: 24px;
-    }
+      .subtitle {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-bottom: 24px;
+      }
 
-    #qrcode {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
+      #qrcode {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
 
-    #qrcode canvas, #qrcode img {
-      border-radius: 12px;
-    }
+      #qrcode canvas,
+      #qrcode img {
+        border-radius: 12px;
+      }
 
-    .instruction {
-      font-size: 0.8rem;
-      color: #6b7280;
-      line-height: 1.5;
-    }
+      .instruction {
+        font-size: 0.8rem;
+        color: #6b7280;
+        line-height: 1.5;
+      }
 
-    .url {
-      font-size: 0.72rem;
-      color: #9ca3af;
-      margin-top: 8px;
-      word-break: break-all;
-    }
+      .url {
+        font-size: 0.72rem;
+        color: #9ca3af;
+        margin-top: 8px;
+        word-break: break-all;
+      }
 
-    /* Print button — hidden when printing */
-    .print-btn {
-      margin-top: 32px;
-      background: #4a9a3a;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 32px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .print-btn:hover { background: #357a28; }
+      /* Print button — hidden when printing */
+      .print-btn {
+        margin-top: 32px;
+        background: #4a9a3a;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 32px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .print-btn:hover {
+        background: #357a28;
+      }
 
-    @media print {
-      .print-btn { display: none; }
-      body { padding: 0; justify-content: flex-start; }
-    }
-  </style>
-</head>
-<body>
+      @media print {
+        .print-btn {
+          display: none;
+        }
+        body {
+          padding: 0;
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img class="logo" src="logo/logo.png" alt="Los Tacos May" />
+      <h1>Los Tacos May</h1>
+      <p class="subtitle">Escanea para pagar por transferencia</p>
+      <div id="qrcode"></div>
+      <p class="instruction">
+        Apunta la cámara de tu celular<br />para pagar fácil y rápido
+      </p>
+      <p class="url" id="siteUrl"></p>
+    </div>
 
-  <div class="card">
-    <img class="logo" src="logo/logo.png" alt="Los Tacos May" />
-    <h1>Los Tacos May</h1>
-    <p class="subtitle">Escanea para ver los datos de pago</p>
-    <div id="qrcode"></div>
-    <p class="instruction">Apunta la cámara de tu celular<br>para pagar fácil y rápido</p>
-    <p class="url" id="siteUrl"></p>
-  </div>
+    <button class="print-btn" onclick="window.print()">Imprimir QR</button>
 
-  <button class="print-btn" onclick="window.print()">Imprimir QR</button>
+    <script>
+      const SITE_URL = "https://rockking01.github.io/qr-test";
 
-  <script>
-    const SITE_URL = 'https://rockking01.github.io/qr-test';
+      document.getElementById("siteUrl").textContent = SITE_URL;
 
-    document.getElementById('siteUrl').textContent = SITE_URL;
-
-    new QRCode(document.getElementById('qrcode'), {
-      text: SITE_URL,
-      width: 200,
-      height: 200,
-      colorDark: '#4a9a3a',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.H
-    });
-  </script>
-
-</body>
+      new QRCode(document.getElementById("qrcode"), {
+        text: SITE_URL,
+        width: 200,
+        height: 200,
+        colorDark: "#4a9a3a",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    </script>
+  </body>
 </html>

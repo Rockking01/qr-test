@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -s format png /Users/memo/Documents/prueba/logo/tacos.pdf --out /Users/memo/Documents/prueba/logo/tacos_preview.png)",
+      "Bash(sips:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
