@@ -218,7 +218,7 @@
         </svg>
       </div>
       <div class="phone-info">
-        <div class="number" id="phoneDisplay">Próximamente</div>
+        <div class="number" id="phoneDisplay">624 184 3194</div>
         <div class="sublabel">Envía tu comprobante a este número</div>
       </div>
     </div>
@@ -237,19 +237,8 @@
   <footer>Los Tacos May &copy; 2026</footer>
 
   <script>
-    // ── Config ─────────────────────────────────────────
-    const PHONE  = '';   // e.g. '525512345678' — add when ready
-    const WA_MSG = encodeURIComponent('Hola! Acabo de realizar mi pago. Adjunto comprobante.');
-    // ───────────────────────────────────────────────────
-
-    if (PHONE) {
-      document.getElementById('whatsappBtn').href = `https://wa.me/${PHONE}?text=${WA_MSG}`;
-      document.getElementById('phoneDisplay').textContent = `+${PHONE}`;
-    } else {
-      const btn = document.getElementById('whatsappBtn');
-      btn.style.opacity = '0.4';
-      btn.style.pointerEvents = 'none';
-    }
+    document.getElementById('whatsappBtn').href = 'https://wa.me/message/GOGFBOCLJUFRE1';
+    document.getElementById('phoneDisplay').textContent = '624 184 3194';
 
     function copyAccount() {
       navigator.clipboard.writeText('5206 9496 5530 5091').then(() => {
